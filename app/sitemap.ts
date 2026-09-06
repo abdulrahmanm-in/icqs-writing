@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { getAllArticles, getCategories, getTags, slugify } from "@/lib/articles";
 import { absoluteUrl } from "@/lib/site";
 
+export const revalidate = 300;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [articles, categories, tags] = await Promise.all([getAllArticles(), getCategories(), getTags()]);
   return [

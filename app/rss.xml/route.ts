@@ -1,7 +1,7 @@
 import { getAllArticles } from "@/lib/articles";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
-export const dynamic = "force-static";
+export const revalidate = 300;
 
 function escapeXml(value: string) {
   return value.replace(/[<>&'\"]/g, (character) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", "'": "&apos;", '"': "&quot;" })[character] ?? character);

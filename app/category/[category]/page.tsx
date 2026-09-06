@@ -2,8 +2,7 @@ import { notFound } from "next/navigation";
 import { FilteredArticleList } from "@/components/filtered-article-list";
 import { getAllArticles, getCategories } from "@/lib/articles";
 
-export const dynamicParams = false;
-export async function generateStaticParams() { return (await getCategories()).map((category) => ({ category: category.slug })); }
+export const revalidate = 300;
 
 export default async function CategoryPage({ params }: PageProps<"/category/[category]">) {
   const { category } = await params;

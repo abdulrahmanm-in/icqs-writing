@@ -3,15 +3,18 @@ import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://blogs.icqs.fyi"),
+  metadataBase: new URL("https://writing.icqs.fyi"),
   title: {
     default: "ICQS / Writing",
     template: "%s | ICQS / Writing",
   },
   description: "Technology, software, ideas, observations, and everything that catches my attention.",
+  icons: {
+    icon: "/favicon.ico",
+  },
   alternates: {
     types: {
-      "application/rss+xml": "https://blogs.icqs.fyi/rss.xml",
+      "application/rss+xml": "https://writing.icqs.fyi/rss.xml",
     },
   },
   openGraph: {

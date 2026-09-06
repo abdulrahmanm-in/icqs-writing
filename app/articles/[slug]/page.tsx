@@ -9,11 +9,7 @@ import { PreviousNextNavigation } from "@/components/previous-next-navigation";
 import { formatDate, getAllArticles, getArticleBySlug, renderMarkdown, slugify } from "@/lib/articles";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  return (await getAllArticles()).map((article) => ({ slug: article.slug }));
-}
+export const revalidate = 300;
 
 export async function generateMetadata({ params }: PageProps<"/articles/[slug]">): Promise<Metadata> {
   const { slug } = await params;
