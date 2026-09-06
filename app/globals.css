@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --background: #fbfbfa;
+  --foreground: #18181b;
+  --muted-foreground: #71717a;
+  --line: #e4e4e7;
+  --accent: #0f766e;
+  --accent-light: #99f6e4;
+  --surface: #ffffff;
+  --surface-hover: #f4f4f5;
+  --code-background: #f4f4f5;
+  --code-foreground: #27272a;
+}
+
+html.dark {
+  color-scheme: dark;
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+  --muted-foreground: #a0a0a0;
+  --line: #2a2a2a;
+  --accent: #14b8a6;
+  --accent-light: #2dd4bf;
+  --surface: #141414;
+  --surface-hover: #202020;
+  --code-background: #1a1a1a;
+  --code-foreground: #e4e4e7;
+}
+
+html.light {
+  color-scheme: light;
+  --background: #fbfbfa;
+  --foreground: #18181b;
+  --muted-foreground: #71717a;
+  --line: #e4e4e7;
+  --accent: #0f766e;
+  --accent-light: #99f6e4;
+  --surface: #ffffff;
+  --surface-hover: #f4f4f5;
+  --code-background: #f4f4f5;
+  --code-foreground: #27272a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-muted-foreground: var(--muted-foreground);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-code-background: var(--code-background);
+  --color-code-foreground: var(--code-foreground);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SFMono-Regular", "Courier New", Consolas, "Liberation Mono", monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: var(--accent-light); color: #134e4a; }
+
+.article-content { color: var(--foreground); font-size: 1.125rem; line-height: 1.9; }
+.article-content > * + * { margin-top: 2rem; }
+.article-content h1 { color: var(--foreground); font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin-top: 4rem; margin-bottom: 1.5rem; scroll-margin-top: 6rem; }
+.article-content h1:first-child { margin-top: 0; }
+.article-content h2 { color: var(--foreground); font-size: 1.65rem; font-weight: 700; letter-spacing: -0.025em; line-height: 1.2; margin-top: 4.5rem; margin-bottom: 1.5rem; scroll-margin-top: 6rem; }
+.article-content h3 { color: var(--foreground); font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; line-height: 1.3; margin-top: 3.5rem; margin-bottom: 1.25rem; scroll-margin-top: 6rem; }
+.article-content h4 { color: var(--foreground); font-size: 1.15rem; font-weight: 600; margin-top: 2.75rem; margin-bottom: 1rem; }
+.article-content p { margin: 0; }
+.article-content p + p { margin-top: 1.75rem; }
+.article-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; transition: opacity 0.2s; }
+.article-content a:hover { opacity: 0.8; }
+.article-content strong, .article-content b { font-weight: 700; }
+.article-content em, .article-content i { font-style: italic; }
+.article-content code { background: var(--code-background); color: var(--code-foreground); border-radius: 0.3rem; padding: 0.15rem 0.4rem; font-family: var(--font-mono); font-size: 0.85em; }
+.article-content ul, .article-content ol { margin: 2.25rem 0; padding-left: 1.75rem; }
+.article-content ul { list-style: disc; }
+.article-content ol { list-style: decimal; }
+.article-content li { margin: 0.5rem 0; }
+.article-content li + li { margin-top: 0.5rem; }
+.article-content ul ul, .article-content ol ol { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+.article-content blockquote { margin: 2.75rem 0; border-left: 3px solid var(--accent); padding: 0.25rem 0 0.25rem 1.25rem; color: var(--muted-foreground); font-style: italic; }
+.article-content pre { margin: 2.75rem 0; overflow-x: auto; border-radius: 0.75rem; background: var(--code-background); padding: 1.25rem 1.5rem; border: 1px solid var(--line); }
+.article-content pre code { background: transparent; padding: 0; color: inherit; font-size: 0.95em; }
+.article-content table { width: 100%; border-collapse: collapse; margin: 2.5rem 0; font-size: 0.95rem; }
+.article-content table td, .article-content table th { border: 1px solid var(--line); padding: 0.75rem; text-align: left; }
+.article-content table th { background: var(--line); font-weight: 600; }
+html.dark .article-content table th { background: rgba(255, 255, 255, 0.05); }
+.article-content img { max-width: 100%; height: auto; display: block; margin: 3rem 0; border-radius: 0.5rem; }
+.article-content hr { border: none; border-top: 1px solid var(--line); margin: 4rem 0; }
+
+@media (max-width: 640px) {
+  .article-content { font-size: 1.0625rem; line-height: 1.8; }
+  .article-content h2 { margin-top: 3.5rem; }
+  .article-content h3 { margin-top: 2.75rem; }
 }
