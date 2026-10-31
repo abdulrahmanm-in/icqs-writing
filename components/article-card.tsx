@@ -14,7 +14,7 @@ export function ArticleCard({ article }: { article: ArticleSummary }) {
         <span>{article.readingTime} min read</span>
       </div>
       <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-        <Link href={`/articles/${article.slug}`} className="transition group-hover:text-accent group-hover:opacity-80">
+        <Link href={`/${article.slug}`} className="transition group-hover:text-accent group-hover:opacity-80">
           {article.title}
         </Link>
       </h2>
