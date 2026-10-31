@@ -33,7 +33,7 @@ This example travels through the same path as every future post:
 Keep a category broad and use tags for detail. For example, `Engineering` can hold pieces about framework choices, while `Next.js` and `Markdown` remain useful cross-cutting topics.
 
 ```ts
-const articleUrl = `/articles/${slug}`;
+const articleUrl = `/${slug}`;
 ```
 
 When the external content repository is connected, its root-level Markdown files can replace this `content/` directory without changing routes or presentation components.

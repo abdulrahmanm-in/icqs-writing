@@ -20,7 +20,7 @@ export function PreviousNextNavigation({ articles, currentSlug }: PreviousNextNa
       <div className="grid gap-8 sm:grid-cols-2">
         {prev ? (
           <Link
-            href={`/articles/${prev.slug}`}
+            href={`/${prev.slug}`}
             className="group flex flex-col gap-2 rounded-lg border border-line bg-surface p-5 transition hover:border-accent hover:bg-surface-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             <span className="text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">← Previous</span>
@@ -34,7 +34,7 @@ export function PreviousNextNavigation({ articles, currentSlug }: PreviousNextNa
         )}
         {next ? (
           <Link
-            href={`/articles/${next.slug}`}
+            href={`/${next.slug}`}
             className="group flex flex-col gap-2 rounded-lg border border-line bg-surface p-5 text-right transition hover:border-accent hover:bg-surface-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:text-left"
           >
             <span className="text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">Next →</span>

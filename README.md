@@ -59,7 +59,7 @@ published: true
 Article body in Markdown.
 ```
 
-The filename becomes the slug. For example, `building-a-blog.md` becomes `/articles/building-a-blog`.
+The filename becomes the slug. For example, `building-a-blog.md` becomes `/building-a-blog`.
 
 After a commit reaches `main`, the article is normally visible within five minutes, after the existing Next.js cache revalidates. No site redeploy, webhook, database, or CMS is required. New article/category/tag routes resolve on demand; they are not restricted by `generateStaticParams`.
 
@@ -144,4 +144,4 @@ public/favicon.ico      Site favicon
 
 ## License
 
-Private project. All rights reserved.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
